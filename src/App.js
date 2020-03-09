@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Container, Row, Col, Button } from 'reactstrap';
-import { FaArrowCircleDown, FaArrowCircleUp, FaHeartbeat } from 'react-icons/fa';
 
 var PLAYERS = 0;
 var LIFETOTAL = 0;
@@ -29,7 +28,7 @@ const lifeTracker = {
 const innerLifeTracker = {
   height: 20,
   borderRadius: 5,
-  marginBottom: 20,
+  marginBottom: 15,
 };
 
 function onHoverEnter(ele){
@@ -81,17 +80,17 @@ function GameTime1Player(){
         <Container style = {lifeTracker}>
           <Row>
             <Col xs = {1}></Col>
-            <Col xs = {10} style = {innerLifeTracker} onClick={incLife}><FaArrowCircleUp /></Col>
+            <Col xs = {10} style = {innerLifeTracker} onClick={incLife}></Col>
             <Col xs = {1}></Col>
           </Row>
           <Row>
-            <Col xs = {1}><FaHeartbeat /></Col>
+            <Col xs = {1}></Col>
             <Col  id="P1Life" xs = {10}>{LIFETOTAL}</Col>
-            <Col xs = {1}><FaHeartbeat /></Col>
+            <Col xs = {1}></Col>
           </Row>
           <Row>
             <Col xs = {1}></Col>
-            <Col xs = {10} style = {innerLifeTracker} onClick={decLife}><FaArrowCircleDown /></Col>
+            <Col xs = {10} style = {innerLifeTracker} onClick={decLife}></Col>
             <Col xs = {1}></Col>
           </Row>
         </Container>
