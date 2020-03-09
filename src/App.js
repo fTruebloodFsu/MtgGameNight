@@ -3,8 +3,11 @@ import ReactDOM from 'react-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Container, Row, Col, Button } from 'reactstrap';
+import { GiHealthPotion } from 'react-icons/gi';
+import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
 
 var PLAYERS = 0;
+var LIFETOTAL = 0;
 
 const diceStyle = {
   borderRadius: 5,
@@ -13,6 +16,21 @@ const diceStyle = {
   color: 'black',
   padding: 10,
   margin: 10,
+};
+
+const lifeTracker = {
+  borderRadius: 5,
+  borderColor: 'black',
+  backgroundColor: 'lightgreen',
+  color: 'black',
+  padding: 10,
+  margin: 5,
+};
+
+const innerLifeTracker = {
+  height: 20,
+  borderRadius: 5,
+  marginBottom: 15,
 };
 
 function onHoverEnter(ele){
@@ -38,6 +56,60 @@ function lifeTotals(numPlayers){
   ReactDOM.render(<LifeTotalPage />, document.getElementById('root'));
 }
 
+function startGame(life){
+  LIFETOTAL = life;
+  if(PLAYERS === 1) ReactDOM.render(<GameTime1Player />, document.getElementById('root'));
+}
+
+function GameTime1Player(){
+
+  function incLife(){
+    let currLife = parseInt(document.getElementById("P1Life").innerHTML);
+    currLife = currLife + 1;
+    document.getElementById("P1Life").innerHTML = currLife;
+   }
+   
+   function decLife(){
+     let currLife = parseInt(document.getElementById("P1Life").innerHTML);
+     currLife = currLife - 1;
+     document.getElementById("P1Life").innerHTML = currLife;
+    }
+
+  return (
+    <div className="App">
+      <header className="App-header">
+      <img src="BlackLotusBG.jpg" className="App-logo" alt="Black Lotus" style={{borderRadius: 10, margin: 10}} />
+        <Container style = {lifeTracker}>
+          <Row>
+            <Col xs = {1}></Col>
+            <Col xs = {10} style = {innerLifeTracker} onClick={incLife}><FaArrowUp /></Col>
+            <Col xs = {1}></Col>
+          </Row>
+          <Row>
+            <Col xs = {1}><GiHealthPotion /></Col>
+            <Col  id="P1Life" xs = {10}>{LIFETOTAL}</Col>
+            <Col xs = {1}><GiHealthPotion /></Col>
+          </Row>
+          <Row>
+            <Col xs = {1}></Col>
+            <Col xs = {10} style = {innerLifeTracker} onClick={decLife}><FaArrowDown /></Col>
+            <Col xs = {1}></Col>
+          </Row>
+          <Row>
+          </Row>
+        </Container>
+        <Container>
+          <Row>
+            <Col xs = {12}>
+                <Button color="danger" onClick={goBackToHomePage}>Start Over</Button>
+            </Col>
+          </Row>
+        </Container>
+      </header>
+    </div>
+  );
+}
+
 function LifeTotalPage(){
   return (
     <div className="App">
@@ -49,13 +121,15 @@ function LifeTotalPage(){
             <Col xs = {3}></Col>
             <Col xs = {6} style = {diceStyle}
                           onMouseOver={onHoverEnter} 
-                          onMouseLeave={onHoverLeave}>20</Col>
+                          onMouseLeave={onHoverLeave}
+                          onClick={() => startGame(20)}>20</Col>
           </Row>
           <Row>
             <Col xs = {3}></Col>
             <Col xs = {6} style = {diceStyle}
                           onMouseOver={onHoverEnter} 
-                          onMouseLeave={onHoverLeave}>40</Col>
+                          onMouseLeave={onHoverLeave}
+                          onClick={() => startGame(40)}>40</Col>
           </Row>
           <Col xs = {12}>
               <Button color="danger" onClick={goBackToHomePage}>Start Over</Button>
