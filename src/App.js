@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Container, Row, Col, Button } from 'reactstrap';
-import { GiHealthPotion } from 'react-icons/gi';
-import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
 
 var PLAYERS = 0;
 var LIFETOTAL = 0;
@@ -82,20 +80,18 @@ function GameTime1Player(){
         <Container style = {lifeTracker}>
           <Row>
             <Col xs = {1}></Col>
-            <Col xs = {10} style = {innerLifeTracker} onClick={incLife}><FaArrowUp /></Col>
+            <Col xs = {10} style = {innerLifeTracker} onClick={incLife}></Col>
             <Col xs = {1}></Col>
           </Row>
           <Row>
-            <Col xs = {1}><GiHealthPotion /></Col>
+            <Col xs = {1}></Col>
             <Col  id="P1Life" xs = {10}>{LIFETOTAL}</Col>
-            <Col xs = {1}><GiHealthPotion /></Col>
-          </Row>
-          <Row>
-            <Col xs = {1}></Col>
-            <Col xs = {10} style = {innerLifeTracker} onClick={decLife}><FaArrowDown /></Col>
             <Col xs = {1}></Col>
           </Row>
           <Row>
+            <Col xs = {1}></Col>
+            <Col xs = {10} style = {innerLifeTracker} onClick={decLife}></Col>
+            <Col xs = {1}></Col>
           </Row>
         </Container>
         <Container>
