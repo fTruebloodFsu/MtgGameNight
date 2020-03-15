@@ -25,6 +25,7 @@ const utilityBar = {
   display: "flex",
   alignItems: 'center',
   justifyContent: 'center',
+  fontSize: 15,
 };
 
 const diceDisplay = {
@@ -64,7 +65,7 @@ function d20DieRoller(){
 
 function UtilityBar(target){
   return(
-    <div className="utilityBar" id="utilityBar" style={utilityBar}><Button color="danger" onClick={goBackToHomePage} style={{marginRight: 15}}>Start Over</Button>
+    <div className="utilityBar" id="utilityBar" style={utilityBar}><Button color="danger" onClick={goBackToHomePage} style={{marginRight: 15}}>Home</Button>
                                                      <Button color="info" onClick={d6DieRoller}>D6 </Button>
                                                      <div ClassName="d6Container" id="d6Display" style={diceDisplay}>0</div>
                                                      <Button color="info" onClick={d8DieRoller}>D8 </Button>
@@ -95,6 +96,7 @@ function startGame(life){
   if(PLAYERS === 1) ReactDOM.render(<GameTime1Player />, document.getElementById('root'));
   if(PLAYERS === 2) ReactDOM.render(<GameTime2Player />, document.getElementById('root'));
   if(PLAYERS === 3) ReactDOM.render(<GameTime3Player />, document.getElementById('root'));
+  if(PLAYERS === 4) alert("comming soon")
 }
 
 function GameTime3Player(){
@@ -102,7 +104,6 @@ function GameTime3Player(){
   const styleFor3PlayerContainer = {
     height: '100vh',
     width: '100vw',
-    borderRadius: 10,
     borderColor: 'black',
     color: 'black',
     backgroundColor: 'black',
