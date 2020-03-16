@@ -96,7 +96,264 @@ function startGame(life){
   if(PLAYERS === 1) ReactDOM.render(<GameTime1Player />, document.getElementById('root'));
   if(PLAYERS === 2) ReactDOM.render(<GameTime2Player />, document.getElementById('root'));
   if(PLAYERS === 3) ReactDOM.render(<GameTime3Player />, document.getElementById('root'));
-  if(PLAYERS === 4) alert("comming soon")
+  if(PLAYERS === 4) ReactDOM.render(<GameTime4Player />, document.getElementById('root'));
+}
+
+function GameTime4Player(){
+
+  const styleFor4PlayerContainer = {
+    height: '100vh',
+    width: '100vw',
+    borderColor: 'black',
+    color: 'black',
+    display: "contents",
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: 40
+  }
+
+  const styleFor2PlayersContainer ={
+    height: '45vh',
+    width: '100vw',
+    borderColor: 'black',
+    color: 'black',
+    display: "flex",
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: 40
+  }
+
+  const styleForPlayerContainer = {
+    height: '45vh',
+    width: '50vw',
+    borderColor: 'black',
+    color: 'black',
+    display: "flex",
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: 40 
+  }
+
+  const styleForP1 ={
+    height: '45vh',
+    width: '20vw',
+    borderColor: 'black',
+    borderRadius: 10,
+    color: 'black',
+    backgroundColor: 'lightgreen',
+    display: "flex",
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: 40 
+  }
+
+  const styleForP1Life ={
+    height: '45vh',
+    width: '10vw',
+    borderColor: 'black',
+    borderRadius: 10,
+    color: 'black',
+    backgroundColor: 'lightgreen',
+    display: "flex",
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: 40 
+  }
+
+  const styleForP2 ={
+    height: '45vh',
+    width: '20vw',
+    borderColor: 'black',
+    borderRadius: 10,
+    color: 'black',
+    backgroundColor: 'mediumvioletred',
+    display: "flex",
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: 40 
+  }
+
+  const styleForP2Life ={
+    height: '45vh',
+    width: '10vw',
+    borderColor: 'black',
+    borderRadius: 10,
+    color: 'black',
+    backgroundColor: 'mediumvioletred',
+    display: "flex",
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: 40 
+  }
+
+  const styleForP3 ={
+    height: '45vh',
+    width: '20vw',
+    borderColor: 'black',
+    borderRadius: 10,
+    color: 'black',
+    backgroundColor: 'yellow',
+    display: "flex",
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: 40 
+  }
+
+  const styleForP3Life ={
+    height: '45vh',
+    width: '10vw',
+    borderColor: 'black',
+    borderRadius: 10,
+    color: 'black',
+    backgroundColor: 'yellow',
+    display: "flex",
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: 40 
+  }
+
+  const styleForP4 ={
+    height: '45vh',
+    width: '20vw',
+    borderColor: 'black',
+    borderRadius: 10,
+    color: 'black',
+    backgroundColor: 'slateblue',
+    display: "flex",
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: 40 
+  }
+
+  const styleForP4Life ={
+    height: '45vh',
+    width: '10vw',
+    borderColor: 'black',
+    borderRadius: 10,
+    color: 'black',
+    backgroundColor: 'slateblue',
+    display: "flex",
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: 40 
+  }
+
+  function onHoverEnter(ele){
+    ele.target.style.background = 'grey';
+  }
+  
+  function onHoverLeave1(ele){
+    ele.target.style.background = 'lightgreen';
+  }
+
+  function onHoverLeave2(ele){
+    ele.target.style.background = 'mediumvioletred';
+  }
+
+  function onHoverLeave3(ele){
+    ele.target.style.background = 'yellow';
+  }
+
+  function onHoverLeave4(ele){
+    ele.target.style.background = 'slateblue';
+  }
+
+  function incLife1(){
+    let currLife = parseInt(document.getElementById("P1Life").innerHTML);
+    currLife = currLife + 1;
+    document.getElementById("P1Life").innerHTML = currLife;
+   }
+   
+  function decLife1(){
+     let currLife = parseInt(document.getElementById("P1Life").innerHTML);
+     currLife = currLife - 1;
+     document.getElementById("P1Life").innerHTML = currLife;
+    }
+
+  function incLife2(){
+    let currLife = parseInt(document.getElementById("P2Life").innerHTML);
+    currLife = currLife + 1;
+    document.getElementById("P2Life").innerHTML = currLife;
+    }
+     
+  function decLife2(){
+      let currLife = parseInt(document.getElementById("P2Life").innerHTML);
+      currLife = currLife - 1;
+      document.getElementById("P2Life").innerHTML = currLife;
+    }
+
+  function incLife3(){
+    let currLife = parseInt(document.getElementById("P3Life").innerHTML);
+    currLife = currLife + 1;
+    document.getElementById("P3Life").innerHTML = currLife;
+  }
+       
+  function decLife3(){
+    let currLife = parseInt(document.getElementById("P3Life").innerHTML);
+    currLife = currLife - 1;
+    document.getElementById("P3Life").innerHTML = currLife;
+  }
+
+  function incLife4(){
+    let currLife = parseInt(document.getElementById("P4Life").innerHTML);
+    currLife = currLife + 1;
+    document.getElementById("P4Life").innerHTML = currLife;
+  }
+       
+  function decLife4(){
+    let currLife = parseInt(document.getElementById("P4Life").innerHTML);
+    currLife = currLife - 1;
+    document.getElementById("P4Life").innerHTML = currLife;
+  }
+
+  return(
+    <div className="4PlayerContainer" id="4PlayerContainer" style={styleFor4PlayerContainer}>
+      <UtilityBar />
+      <div className="containerForTop2" id="conatinerForTop2" style={styleFor2PlayersContainer}>
+        <div className="P1container" id="P1container" style={styleForPlayerContainer}>
+          <div className="P1top" id="P1top" style={styleForP1} onMouseEnter={onHoverEnter}
+                                                               onMouseLeave={onHoverLeave1}
+                                                               onClick={decLife1}></div>
+          <div className="P1Life" id="P1Life" style={styleForP1Life}>{LIFETOTAL}</div>
+          <div className="P1bottom" id="P1bottom" style={styleForP1} onMouseEnter={onHoverEnter}
+                                                                     onMouseLeave={onHoverLeave1}
+                                                                     onClick={incLife1}></div>
+        </div>
+
+        <div className="P2container" id="P2container" style={styleForPlayerContainer}>
+          <div className="P2top" id="P2top" style={styleForP2} onMouseEnter={onHoverEnter}
+                                                               onMouseLeave={onHoverLeave2}
+                                                               onClick={incLife2}></div>
+          <div className="P2Life" id="P2Life" style={styleForP2Life}>{LIFETOTAL}</div>
+          <div className="P2bottom" id="P2bottom" style={styleForP2} onMouseEnter={onHoverEnter}
+                                                                     onMouseLeave={onHoverLeave2}
+                                                                     onClick={decLife2}></div>
+        </div>
+      </div>
+
+      <div className="containerForBottom2" id="conatinerForBottom2" style={styleFor2PlayersContainer}>
+        <div className="P3container" id="P3container" style={styleForPlayerContainer}>
+          <div className="P3top" id="P3top" style={styleForP3} onMouseEnter={onHoverEnter}
+                                                               onMouseLeave={onHoverLeave3}
+                                                               onClick={decLife3}></div>
+          <div className="P3Life" id="P3Life" style={styleForP3Life}>{LIFETOTAL}</div>
+          <div className="P3bottom" id="P3bottom" style={styleForP3} onMouseEnter={onHoverEnter}
+                                                                     onMouseLeave={onHoverLeave3}
+                                                                     onClick={incLife3}></div>
+        </div>
+
+        <div className="P4container" id="P4container" style={styleForPlayerContainer}>
+          <div className="P4top" id="P4top" style={styleForP4} onMouseEnter={onHoverEnter}
+                                                               onMouseLeave={onHoverLeave4}
+                                                               onClick={incLife4}></div>
+          <div className="P4Life" id="P4Life" style={styleForP4Life}>{LIFETOTAL}</div>
+          <div className="P4bottom" id="P4bottom" style={styleForP4} onMouseEnter={onHoverEnter}
+                                                                     onMouseLeave={onHoverLeave4}
+                                                                     onClick={decLife4}></div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 function GameTime3Player(){
