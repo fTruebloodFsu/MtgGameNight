@@ -144,7 +144,7 @@ function GameTime4Player(){
     display: "flex",
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: 40 
+    fontSize: 25
   }
 
   const styleForP1Life ={
@@ -157,7 +157,7 @@ function GameTime4Player(){
     display: "flex",
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: 40 
+    fontSize: 25
   }
 
   const styleForP2 ={
@@ -170,7 +170,7 @@ function GameTime4Player(){
     display: "flex",
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: 40 
+    fontSize: 25
   }
 
   const styleForP2Life ={
@@ -183,7 +183,7 @@ function GameTime4Player(){
     display: "flex",
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: 40 
+    fontSize: 25
   }
 
   const styleForP3 ={
@@ -196,7 +196,7 @@ function GameTime4Player(){
     display: "flex",
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: 40 
+    fontSize: 25
   }
 
   const styleForP3Life ={
@@ -209,7 +209,7 @@ function GameTime4Player(){
     display: "flex",
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: 40 
+    fontSize: 25
   }
 
   const styleForP4 ={
@@ -222,7 +222,7 @@ function GameTime4Player(){
     display: "flex",
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: 40 
+    fontSize: 25
   }
 
   const styleForP4Life ={
@@ -235,7 +235,7 @@ function GameTime4Player(){
     display: "flex",
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: 40 
+    fontSize: 25 
   }
 
   function onHoverEnter(ele){
