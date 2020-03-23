@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -683,18 +683,6 @@ function GameTime1Player(){
     ele.target.style.background = 'lightgreen';
   }
 
-  function incLife(){
-    let currLife = parseInt(document.getElementById("P1Life").innerHTML);
-    currLife = currLife + 1;
-    document.getElementById("P1Life").innerHTML = currLife;
-   }
-   
-   function decLife(){
-     let currLife = parseInt(document.getElementById("P1Life").innerHTML);
-     currLife = currLife - 1;
-     document.getElementById("P1Life").innerHTML = currLife;
-    }
-
     const styleForSinglePlayerContainer = {
       height: '100vh',
       width: '100vw',
@@ -728,16 +716,18 @@ function GameTime1Player(){
       justifyContent: 'center',
       fontSize: 40
     }
+  
+  const [life, changeLife] = useState(LIFETOTAL);
 
   return (
     <div className="singlePlayercontainer" style={styleForSinglePlayerContainer}>
       <div className="UtilityBar" id="UtilityBar"></div>
       <UtilityBar />
-      <div ClassName="topHalfSinglePlayer" style={innerLifeContainer} onClick={incLife}
+      <div ClassName="topHalfSinglePlayer" style={innerLifeContainer} onClick={() => changeLife(life + 1)}
                                                                       onMouseOver={onHoverEnter}
                                                                       onMouseLeave={onHoverLeave}></div>
-      <div className="lifeTotalDisplay" id="P1Life" style={lifeTotalStyle}>{LIFETOTAL}</div>
-      <div ClassName="bottomHalfSinglePlayer" style={innerLifeContainer} onClick={decLife}
+      <div className="lifeTotalDisplay" id="P1Life" style={lifeTotalStyle}>{life}</div>
+      <div ClassName="bottomHalfSinglePlayer" style={innerLifeContainer} onClick={() => changeLife(life - 1)}
                                                                          onMouseOver={onHoverEnter}
                                                                          onMouseLeave={onHoverLeave}></div>
     </div>
