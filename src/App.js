@@ -38,42 +38,21 @@ const diceDisplay = {
   justifyContent: 'center',
 }
 
-//various functions
-function d6DieRoller(){
-  const randomNum = Math.floor(Math.random() * 6) + 1;
-  document.getElementById('d6Display').innerHTML = randomNum;
-  return randomNum;
-}
-
-function d8DieRoller(){
-  const randomNum = Math.floor(Math.random() * 8) + 1;
-  document.getElementById('d8Display').innerHTML = randomNum;
-  return randomNum;
-}
-
-function d10DieRoller(){
-  const randomNum = Math.floor(Math.random() * 10) + 1;
-  document.getElementById('d10Display').innerHTML = randomNum;
-  return randomNum;
-}
-
-function d20DieRoller(){
-  const randomNum = Math.floor(Math.random() * 20) + 1;
-  document.getElementById('d20Display').innerHTML = randomNum;
-  return randomNum;
-}
-
 function UtilityBar(target){
+  const [d6, setValueD6] = useState(0);
+  const [d8, setValueD8] = useState(0);
+  const [d10, setValueD10] = useState(0);
+  const [d20, setValueD20] = useState(0);
   return(
     <div className="utilityBar" id="utilityBar" style={utilityBar}><Button color="danger" onClick={goBackToHomePage} style={{marginRight: 15}}>Home</Button>
-                                                     <Button color="info" onClick={d6DieRoller}>D6 </Button>
-                                                     <div ClassName="d6Container" id="d6Display" style={diceDisplay}>0</div>
-                                                     <Button color="info" onClick={d8DieRoller}>D8 </Button>
-                                                     <div ClassName="d8Container" id="d8Display" style={diceDisplay}>0</div>
-                                                     <Button color="info" onClick={d10DieRoller}>D10</Button>
-                                                     <div ClassName="d10Container" id="d10Display" style={diceDisplay}>0</div>
-                                                     <Button color="info" onClick={d20DieRoller}>D20</Button>
-                                                     <div ClassName="d20Container" id="d20Display" style={diceDisplay}>0</div>
+                                                     <Button color="info" onClick={()=>setValueD6(Math.floor(Math.random() * 6) + 1)}>D6 </Button>
+                                                     <div ClassName="d6Container" id="d6Display" style={diceDisplay}>{d6}</div>
+                                                     <Button color="info" onClick={()=>setValueD8(Math.floor(Math.random() * 8) + 1)}>D8 </Button>
+                                                     <div ClassName="d8Container" id="d8Display" style={diceDisplay}>{d8}</div>
+                                                     <Button color="info" onClick={()=>setValueD10(Math.floor(Math.random() * 10) + 1)}>D10</Button>
+                                                     <div ClassName="d10Container" id="d10Display" style={diceDisplay}>{d10}</div>
+                                                     <Button color="info" onClick={()=>setValueD20(Math.floor(Math.random() * 20) + 1)}>D20</Button>
+                                                     <div ClassName="d20Container" id="d20Display" style={diceDisplay}>{d20}</div>
                                                      </div>
   );
 }
@@ -675,6 +654,9 @@ function GameTime2Player(){
 /*Single player life tracker set up*/
 function GameTime1Player(){
 
+  const [life, setLife] = useState(LIFETOTAL);
+  // const [colorTop, setColorTop] = useState(false)
+
   function onHoverEnter(ele){
     ele.target.style.background = 'grey';
   }
@@ -716,18 +698,15 @@ function GameTime1Player(){
       justifyContent: 'center',
       fontSize: 40
     }
-  
-  const [life, changeLife] = useState(LIFETOTAL);
 
   return (
     <div className="singlePlayercontainer" style={styleForSinglePlayerContainer}>
-      <div className="UtilityBar" id="UtilityBar"></div>
       <UtilityBar />
-      <div ClassName="topHalfSinglePlayer" style={innerLifeContainer} onClick={() => changeLife(life + 1)}
+      <div ClassName="topHalfSinglePlayer" style={innerLifeContainer} onClick={() => setLife(life + 1)}
                                                                       onMouseOver={onHoverEnter}
                                                                       onMouseLeave={onHoverLeave}></div>
       <div className="lifeTotalDisplay" id="P1Life" style={lifeTotalStyle}>{life}</div>
-      <div ClassName="bottomHalfSinglePlayer" style={innerLifeContainer} onClick={() => changeLife(life - 1)}
+      <div ClassName="bottomHalfSinglePlayer" style={innerLifeContainer} onClick={() => setLife(life - 1)}
                                                                          onMouseOver={onHoverEnter}
                                                                          onMouseLeave={onHoverLeave}></div>
     </div>
