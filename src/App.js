@@ -261,21 +261,21 @@ function GameTime4Player(){
         <div className="P1container" id="P1container" style={styleForPlayerContainer}>
           <div className="P1top" id="P1top" style={styleForP1} onMouseEnter={onHoverEnter}
                                                                onMouseLeave={onHoverLeave1}
-                                                               onClick={() => setLife1(life1-1)}></div>
+                                                               onClick={() => setLife1(life1-1)}><LEFT /></div>
           <div className="P1Life" id="P1Life" style={styleForP1Life}>{life1}</div>
           <div className="P1bottom" id="P1bottom" style={styleForP1} onMouseEnter={onHoverEnter}
                                                                      onMouseLeave={onHoverLeave1}
-                                                                     onClick={() => setLife1(life1+1)}></div>
+                                                                     onClick={() => setLife1(life1+1)}><RIGHT /></div>
         </div>
 
         <div className="P2container" id="P2container" style={styleForPlayerContainer}>
           <div className="P2top" id="P2top" style={styleForP2} onMouseEnter={onHoverEnter}
                                                                onMouseLeave={onHoverLeave2}
-                                                               onClick={() => setLife2(life2+1)}></div>
+                                                               onClick={() => setLife2(life2+1)}><LEFT /></div>
           <div className="P2Life" id="P2Life" style={styleForP2Life}>{life2}</div>
           <div className="P2bottom" id="P2bottom" style={styleForP2} onMouseEnter={onHoverEnter}
                                                                      onMouseLeave={onHoverLeave2}
-                                                                     onClick={() => setLife2(life2-1)}></div>
+                                                                     onClick={() => setLife2(life2-1)}><RIGHT /></div>
         </div>
       </div>
 
@@ -283,21 +283,21 @@ function GameTime4Player(){
         <div className="P3container" id="P3container" style={styleForPlayerContainer}>
           <div className="P3top" id="P3top" style={styleForP3} onMouseEnter={onHoverEnter}
                                                                onMouseLeave={onHoverLeave3}
-                                                               onClick={() => setLife3(life3-1)}></div>
+                                                               onClick={() => setLife3(life3-1)}><LEFT /></div>
           <div className="P3Life" id="P3Life" style={styleForP3Life}>{life3}</div>
           <div className="P3bottom" id="P3bottom" style={styleForP3} onMouseEnter={onHoverEnter}
                                                                      onMouseLeave={onHoverLeave3}
-                                                                     onClick={() => setLife3(life3+1)}></div>
+                                                                     onClick={() => setLife3(life3+1)}><RIGHT /></div>
         </div>
 
         <div className="P4container" id="P4container" style={styleForPlayerContainer}>
           <div className="P4top" id="P4top" style={styleForP4} onMouseEnter={onHoverEnter}
                                                                onMouseLeave={onHoverLeave4}
-                                                               onClick={() => setLife4(life4+1)}></div>
+                                                               onClick={() => setLife4(life4+1)}><LEFT /></div>
           <div className="P4Life" id="P4Life" style={styleForP4Life}>{life4}</div>
           <div className="P4bottom" id="P4bottom" style={styleForP4} onMouseEnter={onHoverEnter}
                                                                      onMouseLeave={onHoverLeave4}
-                                                                     onClick={() => setLife4(life4-1)}></div>
+                                                                     onClick={() => setLife4(life4-1)}><RIGHT /></div>
         </div>
       </div>
     </div>
@@ -448,7 +448,7 @@ function GameTime3Player(){
           <div className="player2top" id="player2top" style={styleForPlayer2} onMouseEnter={onHoverEnter}
                                                                               onMouseLeave={onHoverLeave2}
                                                                               onClick={() => setLife2(life2-1)}><LEFT /></div>
-          <div className="P2Life" id="P2Life" style={lifeTotalStyle2}><HEART />{life2}<HEART /></div>
+          <div className="P2Life" id="P2Life" style={lifeTotalStyle2}>{life2}</div>
           <div className="player2bottom" id="player2bottom" style={styleForPlayer2} onMouseEnter={onHoverEnter}
                                                                                     onMouseLeave={onHoverLeave2}
                                                                                     onClick={() => setLife2(life2+1)}><RIGHT /></div>
@@ -457,7 +457,7 @@ function GameTime3Player(){
           <div className="player3top" id="player3top" style={styleForPlayer3} onMouseEnter={onHoverEnter}
                                                                               onMouseLeave={onHoverLeave3}
                                                                               onClick={() => setLife3(life3+1)}><LEFT /></div>
-          <div className="P3Life" id="P3Life" style={lifeTotalStyle3}><HEART />{life3}<HEART /></div>
+          <div className="P3Life" id="P3Life" style={lifeTotalStyle3}>{life3}</div>
           <div className="player3bottom" id="player3bottom" style={styleForPlayer3} onMouseEnter={onHoverEnter}
                                                                                     onMouseLeave={onHoverLeave3}
                                                                                     onClick={() => setLife3(life3-1)}><RIGHT /></div>
