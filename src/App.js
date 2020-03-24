@@ -5,11 +5,19 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { Container, Row, Col, Button } from 'reactstrap';
 import { Icon } from 'react-icons-kit'
 import {heartbeat} from 'react-icons-kit/fa/heartbeat'
+import {chevronCircleUp} from 'react-icons-kit/fa/chevronCircleUp'
+import {chevronCircleDown} from 'react-icons-kit/fa/chevronCircleDown'
+// import {chevronCircleLeft} from 'react-icons-kit/fa/chevronCircleDown'
+// import {chevronCircleRight} from 'react-icons-kit/fa/chevronCircleDown'
 
 var PLAYERS = 0;
 var LIFETOTAL = 0;
 
-const HEART = () => <Icon size={32} icon={heartbeat}/>
+const HEART = () => <Icon size={32} icon={heartbeat} />
+const INC = () => <Icon size={40} icon={chevronCircleUp} />
+const DEC = () => <Icon size={40} icon={chevronCircleDown} />
+// const LEFT = () => <Icon size={32} icon={chevronCircleLeft} />
+// const RIGHT = () => <Icon size={32} icon={chevronCircleRight} />
 
 //Styles set up
 const diceStyle = {
@@ -611,11 +619,11 @@ function GameTime1Player(){
       <UtilityBar />
       <div ClassName="topHalfSinglePlayer" style={innerLifeContainer} onClick={() => setLife(life + 1)}
                                                                       onMouseOver={onHoverEnter}
-                                                                      onMouseLeave={onHoverLeave}></div>
+                                                                      onMouseLeave={onHoverLeave}><INC /></div>
       <div className="lifeTotalDisplay" id="P1Life" style={lifeTotalStyle}><HEART />{life}<HEART /></div>
       <div ClassName="bottomHalfSinglePlayer" style={innerLifeContainer} onClick={() => setLife(life - 1)}
                                                                          onMouseOver={onHoverEnter}
-                                                                         onMouseLeave={onHoverLeave}></div>
+                                                                         onMouseLeave={onHoverLeave}><DEC /></div>
     </div>
   );
 }
