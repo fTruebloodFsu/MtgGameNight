@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Container, Row, Col, Button } from 'reactstrap';
-import { GiHealthPotion,  } from "react-icons/gi";
-import { FaArrowCircleDown, FaArrowCircleUp } from "react-icons/fa";
 
 var PLAYERS = 0;
 var LIFETOTAL = 0;
@@ -609,11 +607,11 @@ function GameTime1Player(){
       <UtilityBar />
       <div ClassName="topHalfSinglePlayer" style={innerLifeContainer} onClick={() => setLife(life + 1)}
                                                                       onMouseOver={onHoverEnter}
-                                                                      onMouseLeave={onHoverLeave}><FaArrowCircleUp /></div>
-      <div className="lifeTotalDisplay" id="P1Life" style={lifeTotalStyle}><GiHealthPotion />{life}<GiHealthPotion /></div>
+                                                                      onMouseLeave={onHoverLeave}></div>
+      <div className="lifeTotalDisplay" id="P1Life" style={lifeTotalStyle}>{life}</div>
       <div ClassName="bottomHalfSinglePlayer" style={innerLifeContainer} onClick={() => setLife(life - 1)}
                                                                          onMouseOver={onHoverEnter}
-                                                                         onMouseLeave={onHoverLeave}><FaArrowCircleDown /></div>
+                                                                         onMouseLeave={onHoverLeave}></div>
     </div>
   );
 }
