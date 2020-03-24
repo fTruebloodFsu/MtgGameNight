@@ -7,8 +7,8 @@ import { Icon } from 'react-icons-kit'
 import {heartbeat} from 'react-icons-kit/fa/heartbeat'
 import {chevronCircleUp} from 'react-icons-kit/fa/chevronCircleUp'
 import {chevronCircleDown} from 'react-icons-kit/fa/chevronCircleDown'
-// import {chevronCircleLeft} from 'react-icons-kit/fa/chevronCircleDown'
-// import {chevronCircleRight} from 'react-icons-kit/fa/chevronCircleDown'
+import {chevronCircleLeft} from 'react-icons-kit/fa/chevronCircleDown'
+import {chevronCircleRight} from 'react-icons-kit/fa/chevronCircleDown'
 
 var PLAYERS = 0;
 var LIFETOTAL = 0;
@@ -16,8 +16,8 @@ var LIFETOTAL = 0;
 const HEART = () => <Icon size={32} icon={heartbeat} />
 const INC = () => <Icon size={40} icon={chevronCircleUp} />
 const DEC = () => <Icon size={40} icon={chevronCircleDown} />
-// const LEFT = () => <Icon size={32} icon={chevronCircleLeft} />
-// const RIGHT = () => <Icon size={32} icon={chevronCircleRight} />
+const LEFT = () => <Icon size={32} icon={chevronCircleLeft} />
+const RIGHT = () => <Icon size={32} icon={chevronCircleRight} />
 
 //Styles set up
 const diceStyle = {
@@ -550,19 +550,19 @@ function GameTime2Player(){
       <UtilityBar />
       <div className="Player1top" id="Player1top" style={playerStyle1} onMouseOver={onHoverEnter}
                                                                        onMouseLeave={onHoverLeave1}
-                                                                       onClick={() => setLife1(life1+1)}></div>
-      <div ClassName="P1Life" id="P1Life" style={lifeTotalStyle1}>{life1}</div>
+                                                                       onClick={() => setLife1(life1+1)}><INC /></div>
+      <div ClassName="P1Life" id="P1Life" style={lifeTotalStyle1}><HEART />{life1}<HEART /></div>
       <div className="Player1bottom" id="Player1bottom" style={playerStyle1} onMouseOver={onHoverEnter}
                                                                        onMouseLeave={onHoverLeave1}
-                                                                       onClick={() => setLife1(life1-1)}></div>
+                                                                       onClick={() => setLife1(life1-1)}><DEC /></div>
 
       <div className="Player2top" id="Player2top" style={playerStyle2} onMouseOver={onHoverEnter}
                                                                        onMouseLeave={onHoverLeave2}
-                                                                       onClick={() => setLife2(life2+1)}></div>
-      <div ClassName="P2Life" id="P2Life" style={lifeTotalStyle2}>{life2}</div>
+                                                                       onClick={() => setLife2(life2+1)}><INC /></div>
+      <div ClassName="P2Life" id="P2Life" style={lifeTotalStyle2}><HEART />{life2}<HEART /></div>
       <div className="Player2bottom" id="Player2bottom" style={playerStyle2} onMouseOver={onHoverEnter}
                                                                        onMouseLeave={onHoverLeave2}
-                                                                       onClick={() => setLife2(life2-1)}></div>                
+                                                                       onClick={() => setLife2(life2-1)}><DEC /></div>                
     </div>
   );
 
