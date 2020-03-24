@@ -3,9 +3,13 @@ import ReactDOM from 'react-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Container, Row, Col, Button } from 'reactstrap';
+import { Icon } from 'react-icons-kit'
+import {heartbeat} from 'react-icons-kit/fa/heartbeat'
 
 var PLAYERS = 0;
 var LIFETOTAL = 0;
+
+const HEART = () => <Icon size={32} icon={heartbeat}/>
 
 //Styles set up
 const diceStyle = {
@@ -608,7 +612,7 @@ function GameTime1Player(){
       <div ClassName="topHalfSinglePlayer" style={innerLifeContainer} onClick={() => setLife(life + 1)}
                                                                       onMouseOver={onHoverEnter}
                                                                       onMouseLeave={onHoverLeave}></div>
-      <div className="lifeTotalDisplay" id="P1Life" style={lifeTotalStyle}>{life}</div>
+      <div className="lifeTotalDisplay" id="P1Life" style={lifeTotalStyle}><HEART />{life}<HEART /></div>
       <div ClassName="bottomHalfSinglePlayer" style={innerLifeContainer} onClick={() => setLife(life - 1)}
                                                                          onMouseOver={onHoverEnter}
                                                                          onMouseLeave={onHoverLeave}></div>
