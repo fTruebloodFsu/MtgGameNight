@@ -7,8 +7,8 @@ import { Icon } from 'react-icons-kit'
 import {heartbeat} from 'react-icons-kit/fa/heartbeat'
 import {chevronCircleUp} from 'react-icons-kit/fa/chevronCircleUp'
 import {chevronCircleDown} from 'react-icons-kit/fa/chevronCircleDown'
-import {chevronCircleLeft} from 'react-icons-kit/fa/chevronCircleDown'
-import {chevronCircleRight} from 'react-icons-kit/fa/chevronCircleDown'
+import {chevronCircleLeft} from 'react-icons-kit/fa/chevronCircleLeft'
+import {chevronCircleRight} from 'react-icons-kit/fa/chevronCircleRight'
 
 var PLAYERS = 0;
 var LIFETOTAL = 0;
@@ -438,29 +438,29 @@ function GameTime3Player(){
       <UtilityBar />
       <div className="player1Top" id="player1Top" style={styleForPlayer1} onMouseEnter={onHoverEnter}
                                                                           onMouseLeave={onHoverLeave1}
-                                                                          onClick={() => setLife1(life1+1)}></div>
-      <div className="P1Life" id="P1Life" style={lifeTotalStyle1}>{life1}</div>
+                                                                          onClick={() => setLife1(life1+1)}><INC /></div>
+      <div className="P1Life" id="P1Life" style={lifeTotalStyle1}><HEART />{life1}<HEART /></div>
       <div className="player1bottom" id="player1bottom" style={styleForPlayer1}onMouseEnter={onHoverEnter}
                                                                           onMouseLeave={onHoverLeave1}
-                                                                          onClick={() => setLife1(life1-1)}></div>
+                                                                          onClick={() => setLife1(life1-1)}><DEC /></div>
       <div className="bottom2players" id="bottom2players" style={bottom2Players}>
         <div className="player2container" id="player2container" style={bottomPlayerContainer}>
           <div className="player2top" id="player2top" style={styleForPlayer2} onMouseEnter={onHoverEnter}
                                                                               onMouseLeave={onHoverLeave2}
-                                                                              onClick={() => setLife2(life2-1)}></div>
-          <div className="P2Life" id="P2Life" style={lifeTotalStyle2}>{life2}</div>
+                                                                              onClick={() => setLife2(life2-1)}><LEFT /></div>
+          <div className="P2Life" id="P2Life" style={lifeTotalStyle2}><HEART />{life2}<HEART /></div>
           <div className="player2bottom" id="player2bottom" style={styleForPlayer2} onMouseEnter={onHoverEnter}
                                                                                     onMouseLeave={onHoverLeave2}
-                                                                                    onClick={() => setLife2(life2+1)}></div>
+                                                                                    onClick={() => setLife2(life2+1)}><RIGHT /></div>
         </div>
         <div className="player3container" id="plaer3container" style={bottomPlayerContainer}>
           <div className="player3top" id="player3top" style={styleForPlayer3} onMouseEnter={onHoverEnter}
                                                                               onMouseLeave={onHoverLeave3}
-                                                                              onClick={() => setLife3(life3+1)}></div>
-          <div className="P3Life" id="P3Life" style={lifeTotalStyle3}>{life3}</div>
+                                                                              onClick={() => setLife3(life3+1)}><LEFT /></div>
+          <div className="P3Life" id="P3Life" style={lifeTotalStyle3}><HEART />{life3}<HEART /></div>
           <div className="player3bottom" id="player3bottom" style={styleForPlayer3} onMouseEnter={onHoverEnter}
                                                                                     onMouseLeave={onHoverLeave3}
-                                                                                    onClick={() => setLife3(life3-1)}></div>
+                                                                                    onClick={() => setLife3(life3-1)}><RIGHT /></div>
         </div>
       </div>
     </div>
