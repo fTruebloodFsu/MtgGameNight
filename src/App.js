@@ -58,7 +58,6 @@ const baseStyleForLifeTracker = {
   justifyContent: 'center',
   color: 'black',
   border: '1px solid black',
-  transform: [{ rotate: '90deg' }],
 }
 
 function addColor(myStyle, color){
