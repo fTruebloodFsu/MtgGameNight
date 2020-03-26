@@ -50,6 +50,35 @@ const diceDisplay = {
   justifyContent: 'center',
 }
 
+const baseStyleForLifeTracker = {
+  borderRadius: 10,
+  display: "flex",
+  alignItems: 'center',
+  justifyContent: 'center',
+  color: 'black',
+  border: '2px solid black',
+}
+
+function addColor(myStyle, color){
+  myStyle.backgroundColor = color;
+  return myStyle;
+}
+
+function addHeight(myStyle, h){
+  myStyle.height = h;
+  return myStyle;
+}
+
+function addWidth(myStyle, w){
+  myStyle.width = w;
+  return myStyle;
+}
+
+function addFontSize(myStyle, size){
+  myStyle.fontSize = size;
+  return myStyle;
+}
+
 function UtilityBar(target){
   const [d6, setValueD6] = useState(0);
   const [d8, setValueD8] = useState(0);
@@ -567,6 +596,8 @@ function GameTime2Player(){
   );
 
 }
+
+
 /*Single player life tracker set up*/
 function GameTime1Player(){
 
@@ -580,8 +611,12 @@ function GameTime1Player(){
     ele.target.style.background = 'lightgreen';
   }
 
+
+  let stylingForP1 = addColor(addHeight(addWidth({...baseStyleForLifeTracker}, '100vw'), '40vh'), 'lightgreen');
+  let stylingForP1Life = addFontSize(addColor(addHeight(addWidth({...baseStyleForLifeTracker}, '100vw'), '10vh'), 'lightgreen'), 40);
+
     const styleForSinglePlayerContainer = {
-      height: '100vh',
+      height: '90vh',
       width: '100vw',
       borderRadius: 10,
       borderColor: 'black',
@@ -592,36 +627,14 @@ function GameTime1Player(){
       fontSize: 40
     }
 
-    const innerLifeContainer = {
-      height: '40vh',
-      width: '100vw',
-      backgroundColor: 'lightgreen',
-      borderRadius: 10,
-      display: "flex",
-      alignItems: 'center',
-      justifyContent: 'center',
-    }
-
-    const lifeTotalStyle = {
-      height: '10vh',
-      width: '100vw',
-      borderRadius: 10,
-      backgroundColor: 'lightgreen',
-      color: 'black',
-      display: "flex",
-      alignItems: 'center',
-      justifyContent: 'center',
-      fontSize: 40
-    }
-
   return (
     <div className="singlePlayercontainer" style={styleForSinglePlayerContainer}>
       <UtilityBar />
-      <div ClassName="topHalfSinglePlayer" style={innerLifeContainer} onClick={() => setLife(life + 1)}
+      <div ClassName="topHalfSinglePlayer" style={stylingForP1} onClick={() => setLife(life + 1)}
                                                                       onMouseOver={onHoverEnter}
                                                                       onMouseLeave={onHoverLeave}><INC /></div>
-      <div className="lifeTotalDisplay" id="P1Life" style={lifeTotalStyle}><HEART />{life}<HEART /></div>
-      <div ClassName="bottomHalfSinglePlayer" style={innerLifeContainer} onClick={() => setLife(life - 1)}
+      <div className="lifeTotalDisplay" id="P1Life" style={stylingForP1Life}><HEART />{life}<HEART /></div>
+      <div ClassName="bottomHalfSinglePlayer" style={stylingForP1} onClick={() => setLife(life - 1)}
                                                                          onMouseOver={onHoverEnter}
                                                                          onMouseLeave={onHoverLeave}><DEC /></div>
     </div>
