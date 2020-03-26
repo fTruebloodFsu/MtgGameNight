@@ -352,31 +352,6 @@ function GameTime3Player(){
     fontSize: 40
   }
 
-  const styleForPlayer1 = {
-    height: '17vh',
-    width: '100vw',
-    borderRadius: 10,
-    borderColor: 'black',
-    color: 'black',
-    backgroundColor: 'lightgreen',
-    display: "flex",
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 40
-  }
-
-  const lifeTotalStyle1 = {
-    height: '5vh',
-    width: '100vw',
-    borderRadius: 10,
-    backgroundColor: 'lightgreen',
-    color: 'black',
-    display: "flex",
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 30,
-  };
-
   const bottom2Players = {
     height: '50vh',
     width: '100vw',
@@ -399,54 +374,6 @@ function GameTime3Player(){
     fontSize: 30,
   }
 
-  const styleForPlayer2 = {
-    height: '50vh',
-    width: '20vw',
-    borderRadius: 10,
-    color: 'black',
-    backgroundColor: 'mediumvioletred',
-    display: "flex",
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 30,
-  }
-
-  const lifeTotalStyle2 = {
-    height: '50vh',
-    width: '10vw',
-    borderRadius: 10,
-    backgroundColor: 'mediumvioletred',
-    color: 'black',
-    display: "flex",
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 30
-  };
-
-  const styleForPlayer3 = {
-    height: '50vh',
-    width: '20vw',
-    borderRadius: 10,
-    color: 'black',
-    backgroundColor: 'yellow',
-    display: "flex",
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 30,
-  }
-
-  const lifeTotalStyle3 = {
-    height: '50vh',
-    width: '10vw',
-    borderRadius: 10,
-    backgroundColor: 'yellow',
-    color: 'black',
-    display: "flex",
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 30
-  };
-
   function onHoverEnter(ele){
     ele.target.style.background = 'grey';
   }
@@ -463,32 +390,41 @@ function GameTime3Player(){
     ele.target.style.background = 'yellow';
   }
 
+  let stylingForP1 = addColor(addHeight(addWidth({...baseStyleForLifeTracker}, '100vw'), '17vh'), 'lightgreen');
+  let stylingForP1Life = addFontSize(addColor(addHeight(addWidth({...baseStyleForLifeTracker}, '100vw'), '5vh'), 'lightgreen'), 30);
+
+  let stylingForP2 = addColor(addHeight(addWidth({...baseStyleForLifeTracker}, '20vw'), '50vh'), 'mediumvioletred');
+  let stylingForP2Life = addFontSize(addColor(addHeight(addWidth({...baseStyleForLifeTracker}, '10vw'), '50vh'), 'mediumvioletred'), 30);
+
+  let stylingForP3 = addColor(addHeight(addWidth({...baseStyleForLifeTracker}, '20vw'), '50vh'), 'yellow');
+  let stylingForP3Life = addFontSize(addColor(addHeight(addWidth({...baseStyleForLifeTracker}, '10vw'), '50vh'), 'yellow'), 30);
+
   return (
     <div className="3PlayerContainer" id="3PlayerContainer" style={styleFor3PlayerContainer}>
       <UtilityBar />
-      <div className="player1Top" id="player1Top" style={styleForPlayer1} onMouseEnter={onHoverEnter}
+      <div className="player1Top" id="player1Top" style={stylingForP1} onMouseEnter={onHoverEnter}
                                                                           onMouseLeave={onHoverLeave1}
                                                                           onClick={() => setLife1(life1+1)}><INC /></div>
-      <div className="P1Life" id="P1Life" style={lifeTotalStyle1}><HEART />{life1}<HEART /></div>
-      <div className="player1bottom" id="player1bottom" style={styleForPlayer1}onMouseEnter={onHoverEnter}
+      <div className="P1Life" id="P1Life" style={stylingForP1Life}><HEART_SMALL />{life1}<HEART_SMALL /></div>
+      <div className="player1bottom" id="player1bottom" style={stylingForP1}onMouseEnter={onHoverEnter}
                                                                           onMouseLeave={onHoverLeave1}
                                                                           onClick={() => setLife1(life1-1)}><DEC /></div>
       <div className="bottom2players" id="bottom2players" style={bottom2Players}>
         <div className="player2container" id="player2container" style={bottomPlayerContainer}>
-          <div className="player2top" id="player2top" style={styleForPlayer2} onMouseEnter={onHoverEnter}
+          <div className="player2top" id="player2top" style={stylingForP2} onMouseEnter={onHoverEnter}
                                                                               onMouseLeave={onHoverLeave2}
                                                                               onClick={() => setLife2(life2-1)}><LEFT /></div>
-          <div className="P2Life" id="P2Life" style={lifeTotalStyle2}>{life2}</div>
-          <div className="player2bottom" id="player2bottom" style={styleForPlayer2} onMouseEnter={onHoverEnter}
+          <div className="P2Life" id="P2Life" style={stylingForP2Life}>{life2}</div>
+          <div className="player2bottom" id="player2bottom" style={stylingForP2} onMouseEnter={onHoverEnter}
                                                                                     onMouseLeave={onHoverLeave2}
                                                                                     onClick={() => setLife2(life2+1)}><RIGHT /></div>
         </div>
-        <div className="player3container" id="plaer3container" style={bottomPlayerContainer}>
-          <div className="player3top" id="player3top" style={styleForPlayer3} onMouseEnter={onHoverEnter}
+        <div className="player3container" id="player3container" style={bottomPlayerContainer}>
+          <div className="player3top" id="player3top" style={stylingForP3} onMouseEnter={onHoverEnter}
                                                                               onMouseLeave={onHoverLeave3}
                                                                               onClick={() => setLife3(life3+1)}><LEFT /></div>
-          <div className="P3Life" id="P3Life" style={lifeTotalStyle3}>{life3}</div>
-          <div className="player3bottom" id="player3bottom" style={styleForPlayer3} onMouseEnter={onHoverEnter}
+          <div className="P3Life" id="P3Life" style={stylingForP3Life}>{life3}</div>
+          <div className="player3bottom" id="player3bottom" style={stylingForP3} onMouseEnter={onHoverEnter}
                                                                                     onMouseLeave={onHoverLeave3}
                                                                                     onClick={() => setLife3(life3-1)}><RIGHT /></div>
         </div>
