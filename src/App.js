@@ -14,6 +14,7 @@ var PLAYERS = 0;
 var LIFETOTAL = 0;
 
 const HEART = () => <Icon size={32} icon={heartbeat} />
+const HEART_SMALL = () => <Icon size={30} icon={heartbeat} />
 const INC = () => <Icon size={40} icon={chevronCircleUp} />
 const DEC = () => <Icon size={40} icon={chevronCircleDown} />
 const LEFT = () => <Icon size={32} icon={chevronCircleLeft} />
@@ -56,7 +57,7 @@ const baseStyleForLifeTracker = {
   alignItems: 'center',
   justifyContent: 'center',
   color: 'black',
-  border: '2px solid black',
+  border: '1px solid black',
 }
 
 function addColor(myStyle, color){
@@ -514,53 +515,11 @@ function GameTime2Player(){
     fontSize: 40
   }
 
-  const playerStyle1 = {
-    height: '20vh',
-    width: '100vw',
-    borderRadius: 10,
-    borderColor: 'black',
-    backgroundColor: 'lightgreen',
-    color: 'black',
-    display: "flex",
-    alignItems: 'center',
-    justifyContent: 'center',
-  };
+  let stylingForP1 = addColor(addHeight(addWidth({...baseStyleForLifeTracker}, '100vw'), '20vh'), 'lightgreen');
+  let stylingForP1Life = addFontSize(addColor(addHeight(addWidth({...baseStyleForLifeTracker}, '100vw'), '5vh'), 'lightgreen'), 30);
 
-  const lifeTotalStyle1 = {
-    height: '5vh',
-    width: '100vw',
-    borderRadius: 10,
-    backgroundColor: 'lightgreen',
-    color: 'black',
-    display: "flex",
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 30,
-  };
-
-  const playerStyle2 = {
-    height: '20vh',
-    width: '100vw',
-    borderRadius: 10,
-    borderColor: 'black',
-    backgroundColor: 'mediumvioletred',
-    color: 'black',
-    display: "flex",
-    alignItems: 'center',
-    justifyContent: 'center',
-  };
-
-  const lifeTotalStyle2 = {
-    height: '5vh',
-    width: '100vw',
-    borderRadius: 10,
-    backgroundColor: 'mediumvioletred',
-    color: 'black',
-    display: "flex",
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 30
-  };
+  let stylingForP2 = addColor(addHeight(addWidth({...baseStyleForLifeTracker}, '100vw'), '20vh'), 'mediumvioletred');
+  let stylingForP2Life = addFontSize(addColor(addHeight(addWidth({...baseStyleForLifeTracker}, '100vw'), '5vh'), 'mediumvioletred'), 30);
 
   function onHoverEnter(ele){
     ele.target.style.background = 'grey';
@@ -577,19 +536,19 @@ function GameTime2Player(){
   return (
     <div className="2PlayerContainer" id="2PlayerContainer" style={styleFor2PlayerContainer}>
       <UtilityBar />
-      <div className="Player1top" id="Player1top" style={playerStyle1} onMouseOver={onHoverEnter}
+      <div className="Player1top" id="Player1top" style={stylingForP1} onMouseOver={onHoverEnter}
                                                                        onMouseLeave={onHoverLeave1}
                                                                        onClick={() => setLife1(life1+1)}><INC /></div>
-      <div ClassName="P1Life" id="P1Life" style={lifeTotalStyle1}><HEART />{life1}<HEART /></div>
-      <div className="Player1bottom" id="Player1bottom" style={playerStyle1} onMouseOver={onHoverEnter}
+      <div ClassName="P1Life" id="P1Life" style={stylingForP1Life}><HEART_SMALL />{life1}<HEART_SMALL /></div>
+      <div className="Player1bottom" id="Player1bottom" style={stylingForP1} onMouseOver={onHoverEnter}
                                                                        onMouseLeave={onHoverLeave1}
                                                                        onClick={() => setLife1(life1-1)}><DEC /></div>
 
-      <div className="Player2top" id="Player2top" style={playerStyle2} onMouseOver={onHoverEnter}
+      <div className="Player2top" id="Player2top" style={stylingForP2} onMouseOver={onHoverEnter}
                                                                        onMouseLeave={onHoverLeave2}
                                                                        onClick={() => setLife2(life2+1)}><INC /></div>
-      <div ClassName="P2Life" id="P2Life" style={lifeTotalStyle2}><HEART />{life2}<HEART /></div>
-      <div className="Player2bottom" id="Player2bottom" style={playerStyle2} onMouseOver={onHoverEnter}
+      <div ClassName="P2Life" id="P2Life" style={stylingForP2Life}><HEART_SMALL />{life2}<HEART_SMALL /></div>
+      <div className="Player2bottom" id="Player2bottom" style={stylingForP2} onMouseOver={onHoverEnter}
                                                                        onMouseLeave={onHoverLeave2}
                                                                        onClick={() => setLife2(life2-1)}><DEC /></div>                
     </div>
