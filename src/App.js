@@ -95,7 +95,7 @@ function UtilityBar(target){
                                                      <div ClassName="d10Container" id="d10Display" style={diceDisplay}>{d10}</div>
                                                      <Button color="info" onClick={()=>setValueD20(Math.floor(Math.random() * 20) + 1)}>D20</Button>
                                                      <div ClassName="d20Container" id="d20Display" style={diceDisplay}>{d20}</div>
-                                                     </div>
+    </div>
   );
 }
 
@@ -160,110 +160,6 @@ function GameTime4Player(){
     fontSize: 40 
   }
 
-  const styleForP1 ={
-    height: '45vh',
-    width: '20vw',
-    borderColor: 'black',
-    borderRadius: 10,
-    color: 'black',
-    backgroundColor: 'lightgreen',
-    display: "flex",
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 25
-  }
-
-  const styleForP1Life ={
-    height: '45vh',
-    width: '10vw',
-    borderColor: 'black',
-    borderRadius: 10,
-    color: 'black',
-    backgroundColor: 'lightgreen',
-    display: "flex",
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 25
-  }
-
-  const styleForP2 ={
-    height: '45vh',
-    width: '20vw',
-    borderColor: 'black',
-    borderRadius: 10,
-    color: 'black',
-    backgroundColor: 'mediumvioletred',
-    display: "flex",
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 25
-  }
-
-  const styleForP2Life ={
-    height: '45vh',
-    width: '10vw',
-    borderColor: 'black',
-    borderRadius: 10,
-    color: 'black',
-    backgroundColor: 'mediumvioletred',
-    display: "flex",
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 25
-  }
-
-  const styleForP3 ={
-    height: '45vh',
-    width: '20vw',
-    borderColor: 'black',
-    borderRadius: 10,
-    color: 'black',
-    backgroundColor: 'yellow',
-    display: "flex",
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 25
-  }
-
-  const styleForP3Life ={
-    height: '45vh',
-    width: '10vw',
-    borderColor: 'black',
-    borderRadius: 10,
-    color: 'black',
-    backgroundColor: 'yellow',
-    display: "flex",
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 25
-  }
-
-  const styleForP4 ={
-    height: '45vh',
-    width: '20vw',
-    borderColor: 'black',
-    borderRadius: 10,
-    color: 'black',
-    backgroundColor: 'slateblue',
-    display: "flex",
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 25
-  }
-
-  const styleForP4Life ={
-    height: '45vh',
-    width: '10vw',
-    borderColor: 'black',
-    borderRadius: 10,
-    color: 'black',
-    backgroundColor: 'slateblue',
-    display: "flex",
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 25 
-  }
-
   function onHoverEnter(ele){
     ele.target.style.background = 'grey';
   }
@@ -284,26 +180,38 @@ function GameTime4Player(){
     ele.target.style.background = 'slateblue';
   }
 
+  let stylingForP1 = addColor(addHeight(addWidth({...baseStyleForLifeTracker}, '20vw'), '45vh'), 'lightgreen');
+  let stylingForP1Life = addFontSize(addColor(addHeight(addWidth({...baseStyleForLifeTracker}, '10vw'), '45vh'), 'lightgreen'), 25);
+
+  let stylingForP2 = addColor(addHeight(addWidth({...baseStyleForLifeTracker}, '20vw'), '45vh'), 'mediumvioletred');
+  let stylingForP2Life = addFontSize(addColor(addHeight(addWidth({...baseStyleForLifeTracker}, '10vw'), '45vh'), 'mediumvioletred'), 25);
+
+  let stylingForP3 = addColor(addHeight(addWidth({...baseStyleForLifeTracker}, '20vw'), '45vh'), 'yellow');
+  let stylingForP3Life = addFontSize(addColor(addHeight(addWidth({...baseStyleForLifeTracker}, '10vw'), '45vh'), 'yellow'), 25);
+
+  let stylingForP4 = addColor(addHeight(addWidth({...baseStyleForLifeTracker}, '20vw'), '45vh'), 'slateblue');
+  let stylingForP4Life = addFontSize(addColor(addHeight(addWidth({...baseStyleForLifeTracker}, '10vw'), '45vh'), 'slateblue'), 25);
+
   return(
     <div className="4PlayerContainer" id="4PlayerContainer" style={styleFor4PlayerContainer}>
       <UtilityBar />
       <div className="containerForTop2" id="conatinerForTop2" style={styleFor2PlayersContainer}>
         <div className="P1container" id="P1container" style={styleForPlayerContainer}>
-          <div className="P1top" id="P1top" style={styleForP1} onMouseEnter={onHoverEnter}
+          <div className="P1top" id="P1top" style={stylingForP1} onMouseEnter={onHoverEnter}
                                                                onMouseLeave={onHoverLeave1}
                                                                onClick={() => setLife1(life1-1)}><LEFT /></div>
-          <div className="P1Life" id="P1Life" style={styleForP1Life}>{life1}</div>
-          <div className="P1bottom" id="P1bottom" style={styleForP1} onMouseEnter={onHoverEnter}
+          <div className="P1Life" id="P1Life" style={stylingForP1Life}>{life1}</div>
+          <div className="P1bottom" id="P1bottom" style={stylingForP1} onMouseEnter={onHoverEnter}
                                                                      onMouseLeave={onHoverLeave1}
                                                                      onClick={() => setLife1(life1+1)}><RIGHT /></div>
         </div>
 
         <div className="P2container" id="P2container" style={styleForPlayerContainer}>
-          <div className="P2top" id="P2top" style={styleForP2} onMouseEnter={onHoverEnter}
+          <div className="P2top" id="P2top" style={stylingForP2} onMouseEnter={onHoverEnter}
                                                                onMouseLeave={onHoverLeave2}
                                                                onClick={() => setLife2(life2+1)}><LEFT /></div>
-          <div className="P2Life" id="P2Life" style={styleForP2Life}>{life2}</div>
-          <div className="P2bottom" id="P2bottom" style={styleForP2} onMouseEnter={onHoverEnter}
+          <div className="P2Life" id="P2Life" style={stylingForP2Life}>{life2}</div>
+          <div className="P2bottom" id="P2bottom" style={stylingForP2} onMouseEnter={onHoverEnter}
                                                                      onMouseLeave={onHoverLeave2}
                                                                      onClick={() => setLife2(life2-1)}><RIGHT /></div>
         </div>
@@ -311,21 +219,21 @@ function GameTime4Player(){
 
       <div className="containerForBottom2" id="conatinerForBottom2" style={styleFor2PlayersContainer}>
         <div className="P3container" id="P3container" style={styleForPlayerContainer}>
-          <div className="P3top" id="P3top" style={styleForP3} onMouseEnter={onHoverEnter}
+          <div className="P3top" id="P3top" style={stylingForP3} onMouseEnter={onHoverEnter}
                                                                onMouseLeave={onHoverLeave3}
                                                                onClick={() => setLife3(life3-1)}><LEFT /></div>
-          <div className="P3Life" id="P3Life" style={styleForP3Life}>{life3}</div>
-          <div className="P3bottom" id="P3bottom" style={styleForP3} onMouseEnter={onHoverEnter}
+          <div className="P3Life" id="P3Life" style={stylingForP3Life}>{life3}</div>
+          <div className="P3bottom" id="P3bottom" style={stylingForP3} onMouseEnter={onHoverEnter}
                                                                      onMouseLeave={onHoverLeave3}
                                                                      onClick={() => setLife3(life3+1)}><RIGHT /></div>
         </div>
 
         <div className="P4container" id="P4container" style={styleForPlayerContainer}>
-          <div className="P4top" id="P4top" style={styleForP4} onMouseEnter={onHoverEnter}
+          <div className="P4top" id="P4top" style={stylingForP4} onMouseEnter={onHoverEnter}
                                                                onMouseLeave={onHoverLeave4}
                                                                onClick={() => setLife4(life4+1)}><LEFT /></div>
-          <div className="P4Life" id="P4Life" style={styleForP4Life}>{life4}</div>
-          <div className="P4bottom" id="P4bottom" style={styleForP4} onMouseEnter={onHoverEnter}
+          <div className="P4Life" id="P4Life" style={stylingForP4Life}>{life4}</div>
+          <div className="P4bottom" id="P4bottom" style={stylingForP4} onMouseEnter={onHoverEnter}
                                                                      onMouseLeave={onHoverLeave4}
                                                                      onClick={() => setLife4(life4-1)}><RIGHT /></div>
         </div>
