@@ -1,12 +1,11 @@
-MTG Game Night:
+This is a react hobby project for tracking sick time usage of my employees.
 
-This is a life tracking app for Magic The Gathering.
+this will give the ability to: 
+	request sick time
+	check if sick time is available
+	give various stats about sick time usage
 
-It supports one to four players per game.
-
-Life totals are predifed to standard(20) and commander styles(40).
-
-Every game has access to a random dice roller for d6, d8, d10, d20.
+techs used: react, node.js, postgres
 
 
 
@@ -42,3 +41,4 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `npm run eject`
